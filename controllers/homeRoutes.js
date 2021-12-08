@@ -23,10 +23,11 @@ router.get('/', async (req, res) => {
         const posts = dbPostData.map((post) => post.get({ plain: true}));
 
         res.render('homepage', {
-            ...posts,
+             posts,
             logged_in: req.session.logged_in
         });
     } catch (err) {
+        console.log(err);
         res.status(500).json(err);
     }
 });
@@ -78,7 +79,7 @@ router.get('/signup', async (req, res) => {
         return;
     }
 
-    res.render('sign-up');
+    res.render('signup');
 });
 
 

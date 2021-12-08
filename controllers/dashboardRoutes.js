@@ -7,7 +7,7 @@ router.get('/', withAuth, async (req, res) => {
     try {
         const postData = await Post.findAll({
             where: {
-                user_id = req.session.user_id
+                user_id: req.session.user_id
             },
             attributes: [
                 'id',
@@ -40,11 +40,11 @@ router.get('/', withAuth, async (req, res) => {
 
 // Create Post Page
 router.get('/newPost', withAuth, (req, res) => {
-    res.render('new-post');
+    res.render('newPost');
 });
 
 // Edit post page
-router.get('/edit/:id', withAuth, (req, res) => {
+router.get('/edit/:id', withAuth, async (req, res) => {
     try {
         const postData = await Post.findByPk(req.params.id, {
             include: [

@@ -1,6 +1,9 @@
 <section>
     <div>
         <a href="/post/{{id}}">{{title}}</a>
-        <h4>Posted body: {{user.username}} on {{format_date date_created}}</h4>
+        <h4>Posted by: {{user.username}} on {{format_date date_created}}</h4>
+    </div>
+    <div>
+        <p>{{post.content}}</p>
     </div>
 </section>

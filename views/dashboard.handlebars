@@ -1,0 +1,16 @@
+<button>Add New Post</button>
+
+{{#if posts.length}}
+<div>
+    <ol>
+        {{#each posts as |post|}}
+        <li>
+            {{> post-content post}}
+            <a href="/post/edit/{{post.id}}">Edit</a>
+        </li>
+        {{/each}}
+    </ol>
+</div>
+{{/if}}
+
+<script src="/js/add-post.js"></script>
